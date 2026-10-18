@@ -1,0 +1,50 @@
+{
+  "pgvector": {
+    "conn_string": "postgresql://postgres:postgres@localhost:5432/vectordb"
+  },
+  "qdrant": {
+    "url": "http://localhost:6333",
+    "prefer_grpc": true
+  },
+  "weaviate": {
+    "url": "http://localhost:8080",
+    "grpc_port": 50051
+  },
+  "benchmark": {
+    "top_k": 10,
+    "collection_name": "benchmark_collection",
+    "batch_size": 1000,
+    "warmup_queries": 10,
+    "dimension": 384
+  },
+  "corpus": {
+    "dataset": "wikipedia",
+    "config": "20220301.en",
+    "model": "all-MiniLM-L6-v2",
+    "target_vectors": 10000000,
+    "query_count": 1000,
+    "chunk_size": 100000
+  },
+  "loadtest": {
+    "users": 100,
+    "spawn_rate": 10,
+    "run_time": "5m"
+  },
+  "cost_model": {
+    "pgvector": {
+      "compute_hourly": 0.80,
+      "storage_gb_monthly": 0.10,
+      "ops_hours_per_month": 8
+    },
+    "qdrant": {
+      "compute_hourly": 0.80,
+      "storage_gb_monthly": 0.10,
+      "ops_hours_per_month": 6
+    },
+    "weaviate": {
+      "compute_hourly": 0.80,
+      "storage_gb_monthly": 0.10,
+      "ops_hours_per_month": 6
+    }
+  }
+}
